@@ -3,4 +3,14 @@ name = "the_ray_tracer_challenge"
 version = "0.1.0"
 edition = "2021"
 
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+
+[dev-dependencies]
+rstest = "0.23.0"
+
 [dependencies]
+float-cmp = "0.10.0"
