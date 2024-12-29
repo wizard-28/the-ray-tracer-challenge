@@ -40,7 +40,7 @@ fn main() {
             break;
         }
         let x = proj.position.x().abs();
-        let y = (proj.position.y() - canvas.height() as f64).abs();
+        let y = (proj.position.y() - f64::from(canvas.height())).abs();
 
         canvas.write_pixel(x as u32, y as u32, Color::red());
     }

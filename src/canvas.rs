@@ -1,6 +1,6 @@
-use std::{ops, path::Path};
+use std::path::Path;
 
-use image::{DynamicImage, ImageBuffer, Rgb32FImage, RgbImage, Rgba32FImage};
+use image::{DynamicImage, Rgb32FImage};
 
 use crate::primitive::Color;
 
