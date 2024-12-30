@@ -7,7 +7,7 @@ pub trait ApproxEq<Rhs = Self> {
 
 impl ApproxEq for f64 {
     fn approx_eq(self, other: Self) -> bool {
-        approx_eq!(f64, self, other)
+        approx_eq!(f64, self, other, epsilon = 1.0e-7)
     }
 
     fn approx_eq_at_low_precision(self, other: Self) -> bool {
@@ -17,7 +17,7 @@ impl ApproxEq for f64 {
 
 impl ApproxEq for f32 {
     fn approx_eq(self, other: Self) -> bool {
-        approx_eq!(f32, self, other)
+        approx_eq!(f32, self, other, epsilon = 1.0e-7)
     }
 
     fn approx_eq_at_low_precision(self, other: Self) -> bool {

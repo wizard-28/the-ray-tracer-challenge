@@ -2,6 +2,7 @@ pub mod primitive {
     pub use color::Color;
     pub use matrix::Matrix;
     pub use point::Point;
+    pub use tuple::Transform;
     pub use tuple::Tuple;
     pub use vector::Vector;
 

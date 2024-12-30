@@ -66,6 +66,60 @@ impl Matrix<3, 3> {
 }
 
 impl Matrix<4, 4> {
+    pub fn translation(x: f64, y: f64, z: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [1.0, 0.0, 0.0, x],
+            [0.0, 1.0, 0.0, y],
+            [0.0, 0.0, 1.0, z],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
+    pub fn scaling(x: f64, y: f64, z: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [x, 0.0, 0.0, 0.0],
+            [0.0, y, 0.0, 0.0],
+            [0.0, 0.0, z, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
+    pub fn rotation_x(rad: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, rad.cos(), -rad.sin(), 0.0],
+            [0.0, rad.sin(), rad.cos(), 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
+    pub fn rotation_y(rad: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [rad.cos(), 0.0, rad.sin(), 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [-rad.sin(), 0.0, rad.cos(), 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
+    pub fn rotation_z(rad: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [rad.cos(), -rad.sin(), 0.0, 0.0],
+            [rad.sin(), rad.cos(), 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
+    pub fn shear(xy: f64, xz: f64, yx: f64, yz: f64, zx: f64, zy: f64) -> Matrix<4, 4> {
+        Matrix::new([
+            [1.0, xy, xz, 0.0],
+            [yx, 1.0, yz, 0.0],
+            [zx, zy, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ])
+    }
+
     pub fn submatrix(&self, row: usize, col: usize) -> Matrix<3, 3> {
         let mut res = [[0.; 3]; 3];
         for i in 0..4 {

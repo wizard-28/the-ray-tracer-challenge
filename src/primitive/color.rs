@@ -26,13 +26,16 @@ impl Color {
     pub const fn blue() -> Self {
         Color::new(0.0, 0.0, 1.0)
     }
+    pub const fn white() -> Self {
+        Color::new(1.0, 1.0, 1.0)
+    }
 }
 
 impl PartialEq for Color {
     fn eq(&self, other: &Self) -> bool {
-        self.red.approx_eq(other.red)
-            && self.green.approx_eq(other.green)
-            && self.blue.approx_eq(other.blue)
+        self.red.approx_eq_at_low_precision(other.red)
+            && self.green.approx_eq_at_low_precision(other.green)
+            && self.blue.approx_eq_at_low_precision(other.blue)
     }
 }
 
